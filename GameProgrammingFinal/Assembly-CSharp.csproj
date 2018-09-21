@@ -61,19 +61,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\NPCDialogue.cs" />
     <Compile Include="Assets\Scripts\Pillars.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
+    <None Include="Assets\Text Assets\NPC01.txt" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Dalton/Desktop/Dalton/School/Fall2018/Game Programming/GameProgrammingFinal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Dalton/Documents/GitHub/GameProgrammingFinal/GameProgrammingFinal/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Dalton/Desktop/Dalton/School/Fall2018/Game Programming/GameProgrammingFinal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Dalton/Documents/GitHub/GameProgrammingFinal/GameProgrammingFinal/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Dalton/Desktop/Dalton/School/Fall2018/Game Programming/GameProgrammingFinal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Dalton/Documents/GitHub/GameProgrammingFinal/GameProgrammingFinal/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Dalton/Desktop/Dalton/School/Fall2018/Game Programming/GameProgrammingFinal/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Dalton/Documents/GitHub/GameProgrammingFinal/GameProgrammingFinal/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
