@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class UI : MonoBehaviour
 {
     private static UI instance;
-    public GameObject TalkPrompt, DialogueOverlay, OpenDoorPrompt;
-    public Text talkPromptText, dialogueText, openDoorPromptText;
+    public GameObject TalkPrompt, DialogueOverlay, OpenDoorPrompt, PickUpPrompt;
+    public Text talkPromptText, dialogueText, openDoorPromptText, pickUpText;
     public bool inDialog = false;
 
     string[] lines;
@@ -20,6 +20,7 @@ public class UI : MonoBehaviour
             instance = this;
         else
             Destroy(this);
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
@@ -27,6 +28,7 @@ public class UI : MonoBehaviour
         TalkPrompt.SetActive(false);
         DialogueOverlay.SetActive(false);
         OpenDoorPrompt.SetActive(false);
+        PickUpPrompt.SetActive(false);
     }
 
     private void Update()
@@ -35,7 +37,9 @@ public class UI : MonoBehaviour
         {
             Time.timeScale = 0;
             dialogueText.text = lines[curLine];
-            if(Input.GetKeyDown(KeyCode.Space))
+            
+
+            /*if(Input.GetKeyDown(KeyCode.Space))
             {
                 curLine++;
                 if(curLine > endLine)
@@ -44,7 +48,7 @@ public class UI : MonoBehaviour
                     Time.timeScale = 1;
                     inDialog = false;
                 }
-            }
+            }*/
         }
     }
 
@@ -59,6 +63,10 @@ public class UI : MonoBehaviour
             talkPromptText.text = "E to talk to " + name;
         else if (objType is Building)
             openDoorPromptText.text = "E to enter " + name;
+        else if(objType is PlayerController)
+        {
+
+        }
     }
 
     public void showPrompt (string obj, TextAsset textAsset)
@@ -99,3 +107,4 @@ public class UI : MonoBehaviour
         inDialog = true;
     }
 }
+

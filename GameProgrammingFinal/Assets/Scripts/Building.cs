@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+    public string sceneToLoad;
+    PlayerController pc;
     UI ui;
     bool canOpen = false;
 
@@ -11,6 +13,7 @@ public class Building : MonoBehaviour
 	void Start ()
     {
         ui = UI.getInstance();
+        pc = PlayerController.getInstance();
 	}
 	
 	// Update is called once per frame
@@ -21,6 +24,8 @@ public class Building : MonoBehaviour
             if(canOpen)
             {
                 //Enter building
+                pc.setSceneToLoad(sceneToLoad);
+                pc.setCanEnter(true);
             }
         }
 	}

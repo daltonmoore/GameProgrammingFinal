@@ -62,9 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Building.cs" />
+    <Compile Include="Assets\Scripts\Category.cs" />
+    <Compile Include="Assets\Scripts\GameControl.cs" />
+    <Compile Include="Assets\Scripts\InventoryControl.cs" />
+    <Compile Include="Assets\Scripts\InventoryObject.cs" />
+    <Compile Include="Assets\Scripts\InventoryUI.cs" />
     <Compile Include="Assets\Scripts\NPCDialogue.cs" />
     <Compile Include="Assets\Scripts\Pillars.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\TestingCameraMove.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
     <None Include="Assets\Text Assets\NPC01.txt" />
     <Reference Include="UnityEditor.StandardEvents">

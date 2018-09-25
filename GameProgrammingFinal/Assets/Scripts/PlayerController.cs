@@ -2,17 +2,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
     public float moveSpeed, turnSpeed;
     Camera camera;
     Animator anim;
     GameObject sword;
+    bool canEnter = false;
+    bool canPickUp = false;
+    string sceneToLoad;
 
-	// Use this for initialization
-	void Start ()
+    public static PlayerController getInstance()
     {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(this);
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        DontDestroyOnLoad(this);
         sword = GameObject.Find("Sword");
         anim = sword.GetComponent<Animator>();
         camera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -23,7 +42,40 @@ public class PlayerController : MonoBehaviour
     {
         move();
         rotateCamera();
+        enterBuilding();
+        lookRay();
 	}
+
+    void lookRay()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit))
+        {
+            if(hit.collider.tag == "Item")
+            {
+                //show pick up prompt and allow to pick up
+            }
+        }
+    }
+
+    void enterBuilding()
+    {
+        if(canEnter)
+        {
+            canEnter = false;
+            StartCoroutine(Load());
+        }
+    }
+
+    public void setSceneToLoad(string scene)
+    {
+        sceneToLoad = scene;
+    }
+
+    public void setCanEnter(bool canEnter)
+    {
+        this.canEnter = canEnter;
+    }
 
     void move()
     {
@@ -90,5 +142,16 @@ public class PlayerController : MonoBehaviour
         q.x = Mathf.Tan(0.5f * Mathf.Deg2Rad * angleX);
 
         return q;
+    }
+
+    IEnumerator Load()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneToLoad);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        GameObject g = GameObject.Find("PlayerSpawn");
+        gameObject.transform.position = g.transform.position;
     }
 }
